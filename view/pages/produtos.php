@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__  . '/../../model/produtosmodel.php';
+require_once __DIR__ . '/../../model/produtosmodel.php';
 
 $produtoModel = new ProdutoModel();
 $lista = $produtoModel->listar();
@@ -42,17 +42,18 @@ $lista = $produtoModel->listar();
                     <th>preço</th>
                 </thead>
                 <tbody>
-                  <?php foreach ($produtos as $produtos) { ?>
+                    <?php foreach ($lista as $produtos) { ?>
                         <tr>
                             <td><?php echo $produtos['id'] ?></td>
                             <td><?php echo $produtos['nome'] ?></td>
                             <td><?php echo $produtos['descricao'] ?></td>
-                            <td><?php echo $produtos['categoria'] ?></td>
+                            <td><?php echo $produtos['id_categoria'] ?></td>
                             <td><?php echo $produtos['preco'] ?></td>
-                            <td>  
+                            <td>
                                 <!-- METHODS - Get / Post -->
                                 <form action="visualizar.php" method="GET">
                                     <input type="hidden" name="id" value="<?php echo $categorias['id'] ?>">
+
                                     <button class="icon">
                                         <span class="material-symbols-outlined">
                                             visibility
@@ -60,13 +61,16 @@ $lista = $produtoModel->listar();
                                     </button>
                                 </form>
 
-                                <form action="cadastro.php" method="GET">
+                                <form action="cadastrar.php" method="GET">
                                     <input type="hidden" name="id" value="<?php echo $categorias['id'] ?>">
-                                    <button class="icon">
-                                        <span class="material-symbols-outlined">
-                                            edit
-                                        </span>
-                                    </button>
+                                    <a href="cadastrar.php">
+                                        <button class="icon">
+                                            <span class="material-symbols-outlined">
+                                                edit
+                                            </span>
+                                        </button>
+                                    </a>
+
                                 </form>
 
                                 <form action="excluir.php" method="POST">

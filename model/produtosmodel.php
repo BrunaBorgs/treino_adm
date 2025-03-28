@@ -22,20 +22,7 @@ class ProdutoModel {
         return $stmt->fetchAll();
     }
 
-    public function buscarPorId($id) {
-        $indexProduto = -1;
 
-        // $array_filtrado = array_filter(
-        //     $this->produtos,
-        //     function ($produto, $index) use ($id, &$indexProduto) {
-        //         if ($produto['id'] == $id) {
-        //             $indexProduto = $index;
-        //             return $produto;
-        //         }
-        //     },
-        //     ARRAY_FILTER_USE_BOTH
-        // );
-    }
     
     
 }

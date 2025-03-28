@@ -37,25 +37,19 @@ $lista = $usuarioModel->listar();
                     <th>ID</th>
                     <th>Nome</th>
                     <th>Email</th>
-                    <th>Senha</th>
                     <th>Telefone</th>
                     <th>Data de nascimento</th>
                     <th>Cpf</th>
-                    <th>Gênero</th>
-                    <th>Foto de perfil</th>
                 </thead>
                 <tbody>
-                    <?php foreach ($usuarios as $usuarios) { ?>
+                    <?php foreach ($lista as $usuarios) { ?>
                         <tr>
                             <td><?php echo $usuarios['id'] ?></td>
                             <td><?php echo $usuarios['nome'] ?></td>
                             <td><?php echo $usuarios['email'] ?></td>
-                            <td><?php echo $usuarios['senha'] ?></td>
                             <td><?php echo $usuarios['telefone'] ?></td>
                             <td><?php echo $usuarios['data_nascimento'] ?></td>
                             <td><?php echo $usuarios['cpf'] ?></td>
-                            <td><?php echo $usuarios['genero'] ?></td>
-                            <td><?php echo $usuarios['foto_perfil'] ?></td>
                             <!-- METHODS - Get / Post -->
                             <td>
                                 <form action="visualizar.php" method="GET">

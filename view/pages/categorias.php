@@ -5,6 +5,19 @@ require_once __DIR__  . '/../../model/categoriamodel.php';
 $categoriaModel = new CategoriaModel();
 $lista = $categoriaModel->listar();
 
+//modo edicao ou criacao
+if (isset($_GET['id'])) {
+    $modo = 'EDICAO';
+    $categoriaModel = new CategoriaModel();
+    $categoria = $categoriaModel->buscarPorId($_GET['id']);
+} else {
+    $modo = 'CADASTRO';
+    $categoria = [
+        'id' => '',
+        'nome' => '',
+    ];
+}
+
 
 ?>
 
@@ -37,7 +50,7 @@ $lista = $categoriaModel->listar();
                     <th>Descrição</th>
                 </thead>
                 <tbody>
-                    <?php foreach ($categorias as $categorias) { ?>
+                    <?php foreach ($lista as $categorias) { ?>
                         <tr>
                             <td><?php echo $categorias['id'] ?></td>
                             <td><?php echo $categorias['nome'] ?></td>

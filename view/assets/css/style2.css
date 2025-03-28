@@ -32,7 +32,7 @@ body {
     background-image: url(../images/jolynelinda.jpg);
     background-position: center;
     background-size: cover;
-    backdrop-filter: brightness(0.5);
+    backdrop-filter: brightness(0.2) blur(2px);
     height: 100vh;
     /* background-size: 100vw, 100vw 100vh; */
     background-position: 0px 0px, bottom;
@@ -41,7 +41,7 @@ body {
     background-repeat: no-repeat;
 }
 .navtop {
-    background: linear-gradient(to left, #df1d9e81, #a04be185);
+    background: linear-gradient(to left, #df1d9e42, #a04be139);
     z-index: 3;
     box-shadow: 0 0 20px #00000087;
     /* border-bottom: solid 2px #0000ff93; */
@@ -67,7 +67,7 @@ aside {
     flex-direction: column;
     /* padding: 20px; */
     /* align-items: center; */
-    background: linear-gradient(to right, #df1d9e81, #a04be185);
+    background: linear-gradient(to right, #df1d9e42, #a04be139);
     z-index: 2;
     box-shadow: 0 0 20px #00000087;
     /* border-right: solid 2px #0000ff93; */
@@ -91,7 +91,7 @@ main {
 }
 
 footer {
-    background: linear-gradient(to left, #df1d9e81, #a04be185);
+    background: linear-gradient(to left, #df1d9e42, #a04be139);
     /* grid-area: footer; */
     height: 60px;
     bottom: 0;
@@ -130,8 +130,8 @@ h1 {
     text-align: center;
     margin: 15px 130px 15px 0px;
     letter-spacing: 3px;
-    text-shadow: 0 0 7px #b6ffbb;
-    color: #b6ffbb;
+    text-shadow: 0 0 7px #ffb6ca;
+    color: #feb6ff;
     font-size: 3em;
 }
 .scroll {
