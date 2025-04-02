@@ -31,7 +31,12 @@ $lista = $produtoModel->listar();
 
     <main>
         <h1>Produtos</h1>
-
+        <form action="cadastrar_produto.php" method="GET">
+            <input type="hidden" name="id" value="">
+            <button class="cad-button">
+                    Cadastrar Produto
+            </button>
+        </form>
         <div class="scroll">
             <table class="table">
                 <thead>
@@ -61,16 +66,13 @@ $lista = $produtoModel->listar();
                                     </button>
                                 </form>
 
-                                <form action="cadastrar.php" method="GET">
-                                    <input type="hidden" name="id" value="<?php echo $categorias['id'] ?>">
-                                    <a href="cadastrar.php">
-                                        <button class="icon">
-                                            <span class="material-symbols-outlined">
-                                                edit
-                                            </span>
-                                        </button>
-                                    </a>
-
+                                <form action="editar_produto.php" method="GET">
+                                    <input type="hidden" name="id" value="<?php echo $produtos['id'] ?>">
+                                    <button class="icon">
+                                        <span class="material-symbols-outlined">
+                                            edit
+                                        </span>
+                                    </button>
                                 </form>
 
                                 <form action="excluir.php" method="POST">

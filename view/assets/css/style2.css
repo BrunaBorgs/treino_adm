@@ -128,7 +128,7 @@ body {
 }
 h1 {
     text-align: center;
-    margin: 15px 130px 15px 0px;
+    margin: 30px 15px;
     letter-spacing: 3px;
     text-shadow: 0 0 7px #ffb6ca;
     color: #feb6ff;
@@ -218,7 +218,8 @@ h1 {
     flex-direction: column;
     /* align-items: center; */
     width: 210px;
-    background-color: white;
+    /* background-color: white; */
+    background: linear-gradient(to left, #db4cab6e, #a56ad26e);
     /* box-shadow: 0px 0px 11px 1px #0000006d; */
     box-shadow: 0 0 11px #0000006d;
     border-radius: 5px;
@@ -234,9 +235,47 @@ h1 {
     margin-top: 8px;
     font-size: 1.5em;
     font-weight: 500;
-    color: black;
+    color: aliceblue;
     /* text-align: center; */
 }
 p {
     color: gray;
+}
+
+.form-cadastro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cad-cont input {
+    width: 400px;
+    height: 35px;
+    margin: 8px;
+    padding: 10px;
+    border-radius: 5px;
+    background: linear-gradient(to left, #da7dbb9f, #a56ad2ac);
+    box-shadow: 0 0 11px #0000006d;
+    border: none;
+    
+}
+.cad-button {
+    margin: 10px;
+    width: 250px;
+    height: 45px;
+    background: linear-gradient(to left, #db4cabd7, #a56ad2d1);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 11px #0000006d;
+    color: white;
+    transition: 0.2s;
+}
+.cad-button:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+.cad-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

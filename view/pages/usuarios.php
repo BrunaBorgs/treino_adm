@@ -1,9 +1,9 @@
 <?php
 
-require_once __DIR__  . '/../../model/usuariosmodel.php';
+require_once __DIR__ . '/../../model/usuariosmodel.php';
 
 $usuarioModel = new UsuariosModel();
-$lista = $usuarioModel->listar(); 
+$lista = $usuarioModel->listar();
 
 
 ?>
@@ -30,6 +30,12 @@ $lista = $usuarioModel->listar();
 
     <main>
         <h1>Usuários</h1>
+        <form action="cadastrar_usuario.php" method="GET">
+            <input type="hidden" name="id" value="">
+            <button class="cad-button">
+                Cadastrar Usuário
+            </button>
+        </form>
 
         <div class="scroll">
             <table class="table">
@@ -61,8 +67,8 @@ $lista = $usuarioModel->listar();
                                     </button>
                                 </form>
 
-                                <form action="cadastro.php" method="GET">
-                                    <input type="hidden" name="id" value="<?php echo $categorias['id'] ?>">
+                                <form action="editar_usuario.php" method="GET">
+                                    <input type="hidden" name="id" value="<?php echo $usuarios['id'] ?>">
                                     <button class="icon">
                                         <span class="material-symbols-outlined">
                                             edit

@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__  . '/../../model/categoriamodel.php';
+require_once __DIR__ . '/../../model/categoriamodel.php';
 
 $categoriaModel = new CategoriaModel();
 $lista = $categoriaModel->listar();
@@ -42,6 +42,12 @@ if (isset($_GET['id'])) {
 
     <main>
         <h1>Categorias</h1>
+        <form action="cadastrar_categoria.php" method="GET">
+            <input type="hidden" name="id" value="">
+            <button class="cad-button">
+                Cadastrar Categoria
+            </button>
+        </form>
         <div class="scroll">
             <table class="table">
                 <thead>
@@ -66,7 +72,7 @@ if (isset($_GET['id'])) {
                                     </button>
                                 </form>
 
-                                <form action="cadastro.php" method="GET">
+                                <form action="editar_categoria.php" method="GET">
                                     <input type="hidden" name="id" value="<?php echo $categorias['id'] ?>">
                                     <button class="icon">
                                         <span class="material-symbols-outlined">
@@ -78,7 +84,7 @@ if (isset($_GET['id'])) {
                                 <form action="excluir.php" method="POST">
                                     <input type="hidden" name="id" value="<?php echo $categorias['id'] ?>">
                                     <button class="icon"
-                                        onclick="return confirm('Tem certeza que deseja excluir o filme?')">
+                                        onclick="return confirm('Tem certeza que deseja excluir a categoria?')">
                                         <span class="material-symbols-outlined">
                                             delete
                                         </span>
