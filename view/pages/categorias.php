@@ -3,21 +3,27 @@
 require_once __DIR__ . '/../../model/categoriamodel.php';
 
 $categoriaModel = new CategoriaModel();
-$lista = $categoriaModel->listar();
 
-//modo edicao ou criacao
-if (isset($_GET['id'])) {
-    $modo = 'EDICAO';
+
+// //modo edicao ou criacao
+// if (isset($_GET['id'])) {
+//     $modo = 'EDICAO';
+//     $categoriaModel = new CategoriaModel();
+//     $categoria = $categoriaModel->buscarPorId($_GET['id']);
+// } else {
+//     $modo = 'CADASTRO';
+//     $categoria = [
+//         'id' => '',
+//         'nome' => '',
+//     ];
+// }
+
+if (isset($_GET['delete_id'])) {
     $categoriaModel = new CategoriaModel();
-    $categoria = $categoriaModel->buscarPorId($_GET['id']);
-} else {
-    $modo = 'CADASTRO';
-    $categoria = [
-        'id' => '',
-        'nome' => '',
-    ];
+    $deleteId = $_GET['delete_id'];
+    $categoriaModel->deletar($deleteId);
 }
-
+$lista = $categoriaModel->listar();
 
 ?>
 
@@ -63,14 +69,6 @@ if (isset($_GET['id'])) {
                             <td><?php echo $categorias['descricao'] ?></td>
                             <td>
                                 <!-- METHODS - Get / Post -->
-                                <form action="visualizar.php" method="GET">
-                                    <input type="hidden" name="id" value="<?php echo $categorias['id'] ?>">
-                                    <button class="icon">
-                                        <span class="material-symbols-outlined">
-                                            visibility
-                                        </span>
-                                    </button>
-                                </form>
 
                                 <form action="editar_categoria.php" method="GET">
                                     <input type="hidden" name="id" value="<?php echo $categorias['id'] ?>">
@@ -81,14 +79,13 @@ if (isset($_GET['id'])) {
                                     </button>
                                 </form>
 
-                                <form action="excluir.php" method="POST">
-                                    <input type="hidden" name="id" value="<?php echo $categorias['id'] ?>">
-                                    <button class="icon"
+                                <form method="GET">
+                                    <a class="icon" href="?delete_id=<?= $categorias['id'] ?>"
                                         onclick="return confirm('Tem certeza que deseja excluir a categoria?')">
                                         <span class="material-symbols-outlined">
                                             delete
                                         </span>
-                                    </button>
+                                    </a>
                                 </form>
                             </td>
                         </tr>

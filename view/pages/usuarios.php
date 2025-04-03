@@ -3,6 +3,13 @@
 require_once __DIR__ . '/../../model/usuariosmodel.php';
 
 $usuarioModel = new UsuariosModel();
+
+if (isset($_GET['delete_id'])) {
+    $usuarioModel = new UsuariosModel();
+    $deleteId = $_GET['delete_id'];
+    $usuarioModel->deletar($deleteId);
+}
+
 $lista = $usuarioModel->listar();
 
 
@@ -58,14 +65,6 @@ $lista = $usuarioModel->listar();
                             <td><?php echo $usuarios['cpf'] ?></td>
                             <!-- METHODS - Get / Post -->
                             <td>
-                                <form action="visualizar.php" method="GET">
-                                    <input type="hidden" name="id" value="<?php echo $categorias['id'] ?>">
-                                    <button class="icon">
-                                        <span class="material-symbols-outlined">
-                                            visibility
-                                        </span>
-                                    </button>
-                                </form>
 
                                 <form action="editar_usuario.php" method="GET">
                                     <input type="hidden" name="id" value="<?php echo $usuarios['id'] ?>">
@@ -76,14 +75,12 @@ $lista = $usuarioModel->listar();
                                     </button>
                                 </form>
 
-                                <form action="excluir.php" method="POST">
-                                    <input type="hidden" name="id" value="<?php echo $categorias['id'] ?>">
-                                    <button class="icon"
-                                        onclick="return confirm('Tem certeza que deseja excluir o filme?')">
+                                <form method="GET">
+                                    <a class="icon" href="?delete_id=<?= $usuarios['id'] ?>"
+                                        onclick="return confirm('Tem certeza que deseja excluir a categoria?')">
                                         <span class="material-symbols-outlined">
                                             delete
-                                        </span>
-                                    </button>
+                                        </span></a>
                                 </form>
                             </td>
                         </tr>

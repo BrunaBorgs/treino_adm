@@ -1,13 +1,15 @@
 <?php
 
-class Database {
+class Database
+{
     private $host = "localhost";
     private $port = 3306;
     private $dbName = "loja_jolyne";
     private $user = "root";
     private $password = "";
 
-    public function conectar() {
+    public function conectar()
+    {
         $url = "mysql:host=$this->host;port=$this->port;dbname=$this->dbName";
         $conn = new PDO($url, $this->user, $this->password);
 

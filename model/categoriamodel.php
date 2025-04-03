@@ -6,13 +6,8 @@ class CategoriaModel
 
     private $conn;
 
-    public function __construct($conn = null)
+    public function __construct()
     {
-
-        global $pdo;
-
-        $this->pdo = $pdo;
-
         $db = new Database();
         $this->conn = $db->conectar();
     }
@@ -35,13 +30,14 @@ class CategoriaModel
         $stmt->execute();
         return $stmt->fetch();
     }
-    public function findById($id) {
+    public function findById($id)
+    {
         $query = "SELECT * FROM $this->tabela WHERE id = :id";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':id',$id, PDO::PARAM_INT);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_CLASS, __CLASS__);
-    
+
         return $stmt->fetch();
     }
 
@@ -69,14 +65,15 @@ class CategoriaModel
         return $stmt->rowCount() > 0;
     }
 
-    public function deletar($id) {
+    public function deletar($id)
+    {
         $query = "DELETE FROM $this->tabela WHERE id = :id";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':id',$id, PDO::PARAM_INT);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_CLASS, __CLASS__);
         return $stmt->fetch();
-     }
+    }
 }
 
 ?>
