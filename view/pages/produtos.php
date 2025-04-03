@@ -5,10 +5,9 @@ require_once __DIR__ . '/../../model/produtosmodel.php';
 $produtoModel = new ProdutoModel();
 
 
-if (isset($_GET['delete_id'])) {
+if (isset($_POST['id'])) {
     $produtoModel = new ProdutoModel();
-    $deleteId = $_GET['delete_id'];
-    $produtoModel->deletar($deleteId);
+    $produtoModel->deletar($_POST['id']);
 }
 
 
@@ -45,7 +44,7 @@ $lista = $produtoModel->listar();
         <form action="cadastrar_produto.php" method="GET">
             <input type="hidden" name="id" value="">
             <button class="cad-button">
-                    Cadastrar Produto
+                Cadastrar Produto
             </button>
         </form>
         <div class="scroll">
@@ -77,12 +76,13 @@ $lista = $produtoModel->listar();
                                     </button>
                                 </form>
 
-                                <form method="GET">
-                                    <a class="icon" href="?delete_id=<?= $produtos['id'] ?>"
-                                        onclick="return confirm('Tem certeza que deseja excluir a categoria?')">
+                                <form method="POST">
+                                    <input type="hidden" name="id" value="<?php echo $produtos['id'] ?>">
+                                    <button onclick="return confirm('Você deseja excluir esse produto?')">
                                         <span class="material-symbols-outlined">
                                             delete
-                                        </span></a>
+                                        </span>
+                                    </button>
                                 </form>
                             </td>
                         </tr>

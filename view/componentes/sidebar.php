@@ -1,8 +1,11 @@
 <aside>
-    <button type="button">pint</button>
+    <!-- <button type="button">pint</button> -->
 
     <nav id="navside">
         <ul>
+            <li>
+                <a href="../pages/home.php">Home</a>
+            </li>
             <li>
                 <a href="../pages/produtos.php">Produtos</a>
             </li>

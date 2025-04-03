@@ -4,10 +4,9 @@ require_once __DIR__ . '/../../model/usuariosmodel.php';
 
 $usuarioModel = new UsuariosModel();
 
-if (isset($_GET['delete_id'])) {
+if (isset($_POST['id'])) {
     $usuarioModel = new UsuariosModel();
-    $deleteId = $_GET['delete_id'];
-    $usuarioModel->deletar($deleteId);
+    $usuarioModel->deletar($_POST['id']);
 }
 
 $lista = $usuarioModel->listar();
@@ -75,12 +74,13 @@ $lista = $usuarioModel->listar();
                                     </button>
                                 </form>
 
-                                <form method="GET">
-                                    <a class="icon" href="?delete_id=<?= $usuarios['id'] ?>"
-                                        onclick="return confirm('Tem certeza que deseja excluir a categoria?')">
+                                <form method="POST">
+                                    <input type="hidden" name="id" value="<?php echo $usuarios['id'] ?>">
+                                    <button onclick="return confirm('Você deseja excluir esse usuário?')">
                                         <span class="material-symbols-outlined">
                                             delete
-                                        </span></a>
+                                        </span>
+                                    </button>
                                 </form>
                             </td>
                         </tr>
@@ -88,7 +88,6 @@ $lista = $usuarioModel->listar();
                 </tbody>
             </table>
         </div>
-
 
     </main>
 

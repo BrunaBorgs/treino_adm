@@ -4,24 +4,9 @@ require_once __DIR__ . '/../../model/categoriamodel.php';
 
 $categoriaModel = new CategoriaModel();
 
-
-// //modo edicao ou criacao
-// if (isset($_GET['id'])) {
-//     $modo = 'EDICAO';
-//     $categoriaModel = new CategoriaModel();
-//     $categoria = $categoriaModel->buscarPorId($_GET['id']);
-// } else {
-//     $modo = 'CADASTRO';
-//     $categoria = [
-//         'id' => '',
-//         'nome' => '',
-//     ];
-// }
-
-if (isset($_GET['delete_id'])) {
+if (isset($_POST['id'])) {
     $categoriaModel = new CategoriaModel();
-    $deleteId = $_GET['delete_id'];
-    $categoriaModel->deletar($deleteId);
+    $categoriaModel->deletar($_POST['id']);
 }
 $lista = $categoriaModel->listar();
 
@@ -79,14 +64,15 @@ $lista = $categoriaModel->listar();
                                     </button>
                                 </form>
 
-                                <form method="GET">
-                                    <a class="icon" href="?delete_id=<?= $categorias['id'] ?>"
-                                        onclick="return confirm('Tem certeza que deseja excluir a categoria?')">
+                                <form method="POST">
+                                    <input type="hidden" name="id" value="<?php echo $categorias['id'] ?>">
+                                    <button onclick="return confirm('Você deseja excluir essa categoria?')">
                                         <span class="material-symbols-outlined">
                                             delete
                                         </span>
-                                    </a>
+                                    </button>
                                 </form>
+
                             </td>
                         </tr>
                     <?php } ?>
