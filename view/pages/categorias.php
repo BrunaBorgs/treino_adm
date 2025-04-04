@@ -66,7 +66,7 @@ $lista = $categoriaModel->listar();
 
                                 <form method="POST">
                                     <input type="hidden" name="id" value="<?php echo $categorias['id'] ?>">
-                                    <button onclick="return confirm('Você deseja excluir essa categoria?')">
+                                    <button class="icon" onclick="return confirm('Você deseja excluir essa categoria?')">
                                         <span class="material-symbols-outlined">
                                             delete
                                         </span>

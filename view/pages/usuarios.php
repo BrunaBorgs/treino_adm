@@ -76,7 +76,7 @@ $lista = $usuarioModel->listar();
 
                                 <form method="POST">
                                     <input type="hidden" name="id" value="<?php echo $usuarios['id'] ?>">
-                                    <button onclick="return confirm('Você deseja excluir esse usuário?')">
+                                    <button class="icon" onclick="return confirm('Você deseja excluir esse usuário?')">
                                         <span class="material-symbols-outlined">
                                             delete
                                         </span>

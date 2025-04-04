@@ -78,7 +78,7 @@ $lista = $produtoModel->listar();
 
                                 <form method="POST">
                                     <input type="hidden" name="id" value="<?php echo $produtos['id'] ?>">
-                                    <button onclick="return confirm('Você deseja excluir esse produto?')">
+                                    <button class="icon" onclick="return confirm('Você deseja excluir esse produto?')">
                                         <span class="material-symbols-outlined">
                                             delete
                                         </span>

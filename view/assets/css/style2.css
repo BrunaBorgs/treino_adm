@@ -18,6 +18,11 @@
     border: none;
     border-radius: 2px;
     margin: 2px;
+    transition: 0.2s;
+}
+.icon:hover {
+    transform: scale(1.1);
+    filter: brightness(0.8);
 }
 .video {
     width: 100%;
@@ -265,6 +270,7 @@ p {
     margin: 10px;
     width: 250px;
     height: 45px;
+    font-size: 1em;
     background: linear-gradient(to left, #db4cabd7, #a56ad2d1);
     border: none;
     border-radius: 5px;
